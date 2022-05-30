@@ -7,8 +7,45 @@
         <title>RPS</title>
 
         <script>
-            console.log("hello world!");
+            const computerOptions = ["rock", "paper", "scissors"];
+
+            //Welcome Message, created message in html
+
+            //Get a random value for computer's play
+            function computerSelect(computerOptions) {
+                let computerSelection =
+                    computerOptions[
+                        Math.floor(Math.random() * computerOptions.length)
+                    ];
+                console.log(computerSelection);
+            }
+
+            //Get input of rock, paper or scissors from user
+            //let playerSelection = window.prompt("rock, paper or scissors?");
+
+            computerSelect(computerOptions);
+
+            //Compare values
+            //find winner and print message
+
+            //Repeat for however many rounds(let's say bo5)
+
+            //Final message
+
+            //Possible new game option
+            function start() {}
+            //use to delay game so html instructions can be read
+            //could be used to restart game
         </script>
     </head>
-    <body></body>
+    <body>
+        <h1>welcome to rock paper scissors</h1>
+        <h3>this game is played in the console</h3>
+        <p>
+            to access the console you can right click anywhere on the page,
+            click inspect, and navigate to the console page along the top of the
+            new menu <br />
+            to start the game type start() in the console
+        </p>
+    </body>
 </html>
