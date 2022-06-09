@@ -12,19 +12,76 @@
             //Welcome Message, created message in html
 
             //Get a random value for computer's play
-            function computerSelect(computerOptions) {
-                let computerSelection =
-                    computerOptions[
-                        Math.floor(Math.random() * computerOptions.length)
-                    ];
-                console.log(computerSelection);
+            function computerSelect() {
+                return computerOptions[
+                    Math.floor(Math.random() * computerOptions.length)
+                ];
+            }
+            function compare() {
+                // incorrect input
+                if (
+                    playerSelection != "rock" &&
+                    playerSelection != "paper" &&
+                    playerSelection != "scissors"
+                ) {
+                    console.log(
+                        "that was an incorrect input, please type rock, paper or scissors"
+                    );
+                } else if (
+                    // winning options
+                    (playerSelection == "paper" &&
+                        computerSelection == "rock") ||
+                    (playerSelection == "rock" &&
+                        computerSelection == "scissors") ||
+                    (playerSelection == "scissors" &&
+                        computerSelection == "paper")
+                ) {
+                    console.log("win");
+                    playerScore++;
+                } else if (
+                    // drawing options
+                    (playerSelection == "paper" &&
+                        computerSelection == "paper") ||
+                    (playerSelection == "rock" &&
+                        computerSelection == "rock") ||
+                    (playerSelection == "scissors" &&
+                        computerSelection == "scissors")
+                ) {
+                    console.log("draw");
+                } else {
+                    // losing options left over
+                    console.log("lose");
+                    computerScore++;
+                }
+            }
+            function start() {
+                playerScore = 0;
+                computerScore = 0;
+
+                while (playerScore < firstTo && computerScore < firstTo) {
+                    playerSelection = window.prompt("rock, paper or scissors?");
+                    playerSelection = playerSelection.toLowerCase();
+                    console.log("You chose " + playerSelection);
+                    computerSelection = computerSelect();
+                    console.log("The computer chose " + computerSelection);
+                    compare();
+                }
+                if (playerScore == firstTo) {
+                    console.log("PogChamp, you won.");
+                } else {
+                    console.log("so bad at the game, lost to a bot");
+                }
+                console.log("to play again type start()");
             }
 
+            // create variables
+            let playerScore = 0;
+            let computerScore = 0;
+            const firstTo = 3;
+            let playerSelection = "";
+            let computerSelection = "";
+
             //Get input of rock, paper or scissors from user
-            //let playerSelection = window.prompt("rock, paper or scissors?");
-
-            computerSelect(computerOptions);
-
             //Compare values
             //find winner and print message
 
@@ -33,7 +90,7 @@
             //Final message
 
             //Possible new game option
-            function start() {}
+
             //use to delay game so html instructions can be read
             //could be used to restart game
         </script>
